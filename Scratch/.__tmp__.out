@@ -1,0 +1,183 @@
+ Beta activation of the GRPC server.
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2025 R2.04       LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright 1971-2025 Ansys, Inc.  All rights reserved.       *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2025 R2.04  
+     
+ Point Releases and Patches installed:   
+     
+ Discovery 2025 R2   
+ Core WB Files 2025 R2   
+ optiSLang 2025 R2   
+ CFX (includes CFD-Post) 2025 R2 
+ Chemkin 2025 R2 
+ EnSight 2025 R2 
+ FENSAP-ICE 2025 R2  
+ Fluent (includes CFD-Post) 2025 R2  
+ Polyflow (includes CFD-Post) 2025 R2
+ Forte (includes EnSight) 2025 R2
+ Rocky 2025 R2   
+ TurboGrid 2025 R2   
+ ACIS Geometry Interface 2025 R2 
+ AutoCAD Geometry Interface 2025 R2  
+ Catia, Version 4 Geometry Interface 2025 R2 
+ Catia, Version 5 Geometry Interface 2025 R2 
+ Catia, Version 6 Geometry Interface 2025 R2 
+ Creo Elements/Direct Modeling Geometry Interface 2025 R2
+ Creo Parametric Geometry Interface 2025 R2  
+ Inventor Geometry Interface 2025 R2 
+ JTOpen Geometry Interface 2025 R2   
+ NX Geometry Interface 2025 R2   
+ Parasolid Geometry Interface  2025 R2   
+ Solid Edge Geometry Interface 2025 R2   
+ SOLIDWORKS Geometry Interface 2025 R2   
+ Speos 2025 R2   
+ SpaceClaim 2025 R2  
+ Speos RPC 2025 R2   
+ Zemax OpticStudio 2025 R2   
+ Dynamic Reporting 2025 R2   
+ Aqwa 2025 R2
+ Autodyn 2025 R2 
+ Material Calibration App 2025 R2
+ Mechanical Products 2025 R2 
+ Motion 2025 R2  
+ Academic Student 2025 R2
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = file                                                                                                                                                                                                                                                    
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH   2 THREADS REQUESTED
+    TOTAL OF     2 CORES REQUESTED
+  INPUT FILE NAME              = D:\WU15\TRASTRGNN\scratch\.__tmp__.inp
+  OUTPUT FILE NAME             = D:\WU15\TRASTRGNN\scratch\.__tmp__.out
+
+ PARAMETER STATUS-           (   1 PARAMETERS DEFINED)
+
+ NAME                              VALUE                        TYPE
+ PORT                              50052.0000                    SCALAR
+
+ RELEASE= 2025 R2.04           BUILD= 25.2      UP20251105   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=file  17:14:05  MAR 10, 2026 CP=      0.078
+
+     1  FINISH 
+
+ RUN SETUP PROCEDURE FROM FILE= D:\WU15\ANSYS Inc\ANSYS Student\v252\ANSYS\apdl\start.ans
+
+ /OUTPUT FILE= anstmp
+
+ /OUTPUT FILE= anstmp
+
+ /OUTPUT FILE=         
+   *****MAPDL VERIFICATION RUN ONLY*****
+     DO NOT USE RESULTS FOR PRODUCTION
+
+
+          ***** TIME-HISTORY POSTPROCESSOR (POST26) *****
+
+ ALL POST26 SPECIFICATIONS ARE RESET TO INITIAL DEFAULTS
+
+ *** NOTE ***                            CP =       0.000   TIME= 00:00:00
+ Geometry is not available.  Issue RESUME to restore database.           
+
+ *** NOTE ***                            CP =       0.000   TIME= 00:00:00
+ Unable to open default results file                                     
+  Use FILE command to open a results file.                               
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ The geometry is not available.  Issue the RESUME command to restore the 
+ database.  The NUMVAR command is ignored.                               
+
+
+ ***** ROUTINE COMPLETED *****  CP =         0.000
+
+
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Altering the abort level key is not recommended.                        
+
+
+ NUMBER OF DISPLAYED ERRORS ALLOWED PER COMMAND=                200
+ NUMBER OF ERRORS ALLOWED PER COMMAND BEFORE ANSYS ABORT=     10000
+ ABORT LEVEL KEY= -1
+ ALL ERRORS WRITTEN TO                                                                                                                                                                                                                                                                     
+ DO NOT TERMINATE /INPUT UPON FIRST ERROR
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         

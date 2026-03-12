@@ -1,0 +1,12 @@
+/COM,ANSYS RELEASE 2025 R2.04        BUILD 25.2      UP20251105       17:14:04
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ The geometry is not available.  Issue the RESUME command to restore the 
+ database.  The NUMVAR command is ignored.                               
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ Altering the abort level key is not recommended.                        
+
+ *** WARNING ***                         CP =       0.000   TIME= 00:00:00
+ File D:/WU15/TRASTRGNN/scratch/Structure_408.anf does not exist.        
+  The /INPUT command is ignored.                                         
