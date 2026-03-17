@@ -17,14 +17,14 @@ STEP_SOURCE = r"D:\WU15\TRASTRGNN\Data\Version 2"
 MAX_FILES     = 1      # Max structures to process per run (None = ALL)
 SKIP_EXISTING = False    # Skip structures whose .pt output already exists
 
-GMSH_CHAR_LEN_MIN = 20      # mm — minimum element characteristic length
-GMSH_CHAR_LEN_MAX = 40     # mm — maximum element characteristic length
+GMSH_CHAR_LEN_MIN = 40      # mm — minimum element characteristic length
+GMSH_CHAR_LEN_MAX = 80     # mm — maximum element characteristic length
 GMSH_VERBOSE      = True   # True = show Gmsh terminal output
 
-MAX_NODES = 1_000_000     # Rule of thumb: 20k nodes ≈ 2–4 GB RAM per solve
+MAX_NODES = 3_000_000     # Rule of thumb: 20k nodes ≈ 2–4 GB RAM per solve
 
-TOTAL_TIME    = 0.1     # seconds — total simulation duration
-N_SUBSTEPS    = 10      # number of equal time steps to extract
+TOTAL_TIME    = 5.0     # seconds — total simulation duration
+N_SUBSTEPS    = 50     # number of equal time steps to extract
 NEWMARK_BETA  = 0.25    # 0.25 = constant-average acceleration (stable)
 NEWMARK_GAMMA = 0.5     # 0.5  = no numerical damping
 
