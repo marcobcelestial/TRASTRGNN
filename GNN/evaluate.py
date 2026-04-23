@@ -37,7 +37,7 @@ def evaluate():
     
     print("Running Physical Accuracy Evaluation...")
     
-    # Disable gradient calculation to save VRAM and speed up inference
+    #Disable gradient calculation to save VRAM and speed up inference
     with torch.no_grad():
         for batch in tqdm(loader, desc="Evaluating"):
             batch = batch.to(Config.DEVICE)
@@ -74,7 +74,7 @@ def evaluate():
 
             batch_count += 1
             
-    # Calculate final averages
+    #Calculate final averages
     avg_disp_mae = total_disp_mae / batch_count
     avg_force_mae = total_force_mae / batch_count
     avg_moment_mae = total_moment_mae / batch_count

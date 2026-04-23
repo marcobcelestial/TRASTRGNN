@@ -5,7 +5,7 @@ from torch_geometric.data import Data
 from model import ST_GNN
 from config import Config
 
-def infer_and_visualize(pt_file, timestep_to_predict=4):
+def infer_and_visualize(pt_file, timestep_to_predict=5):
     print(f"Inferring step {timestep_to_predict} for {pt_file}...")
     
     #Load Data & Model
@@ -44,7 +44,7 @@ def infer_and_visualize(pt_file, timestep_to_predict=4):
     #Use Axial Force (1st component of the 12-DOF force tensor) for coloring
     axial_forces = pred_force[:, 0]
     norm_forces = (axial_forces - axial_forces.min()) / (axial_forces.max() - axial_forces.min() + 1e-8)
-    cmap = plt.get_cmap('coolwarm') # Red = Tension/High Force, Blue = Compression
+    cmap = plt.get_cmap('coolwarm') #Red = Tension/High Force, Blue = Compression
     
     #Plot 3D Graph
     fig = plt.figure(figsize=(10, 8))
@@ -75,6 +75,6 @@ def infer_and_visualize(pt_file, timestep_to_predict=4):
     plt.show()
 
 if __name__ == "__main__":
-    # Point this to a single generated .pt file
+    #Point this to a single generated .pt file
     sample_file = r"D:\WU15\TRASTRGNN\Data\Version 7\Structure-101.pt"
     infer_and_visualize(sample_file)
