@@ -11,7 +11,10 @@ def infer_and_visualize(pt_file, timestep_to_predict=5):
     #Load Data & Model
     raw_data = torch.load(pt_file, weights_only=False)
     model = ST_GNN().to(Config.DEVICE)
-    model.load_state_dict(torch.load(Config.MODEL_SAVE_PATH, weights_only=True))
+    
+    #Extract the model state from the checkpoint dictionary
+    checkpoint = torch.load(Config.MODEL_SAVE_PATH, weights_only=False)
+    model.load_state_dict(checkpoint['model_state_dict'])
     model.eval()
     
     #Prepare Input Sequence
@@ -19,27 +22,42 @@ def infer_and_visualize(pt_file, timestep_to_predict=5):
     x_seq = raw_data["y_disp"][t : t + Config.SEQ_LEN]
     x_flat = x_seq.transpose(0, 1).reshape(raw_data["node_pos"].shape[0], -1)
     
+    #Apply the correct scales to the inputs before prediction
+    x_flat_scaled = x_flat / Config.DISP_SCALE
+    
+    scaled_edge_attr = raw_data["edge_attr"].clone()
+    scaled_edge_attr[:, 0] = scaled_edge_attr[:, 0] / Config.AREA_SCALE
+    scaled_edge_attr[:, 1] = scaled_edge_attr[:, 1] / Config.INERTIA_SCALE
+    scaled_edge_attr[:, 2] = scaled_edge_attr[:, 2] / Config.INERTIA_SCALE
+    scaled_edge_attr[:, 3] = scaled_edge_attr[:, 3] / Config.INERTIA_SCALE
+    
     data = Data(
-        x=x_flat,
+        x=x_flat_scaled,
         edge_index=raw_data["edge_index"],
-        edge_attr=raw_data["edge_attr"]
+        edge_attr=scaled_edge_attr
     ).to(Config.DEVICE)
     
     #Predict
     with torch.no_grad():
         pred_disp, pred_force, _ = model(data)
     
-    #Un-scale back to real physical units (mm and Newtons)
+    #Un-scale back to real physical units
     pred_disp = (pred_disp * Config.DISP_SCALE).cpu().numpy()
-    pred_force = (pred_force * Config.FORCE_SCALE).cpu().numpy()
+    pred_force = pred_force.cpu().numpy()
+    
+    #Split the Force and Moment un-scaling for accurate physics
+    force_idx = [0, 1, 2, 6, 7, 8]
+    moment_idx = [3, 4, 5, 9, 10, 11]
+    pred_force[:, force_idx] *= Config.FORCE_SCALE
+    pred_force[:, moment_idx] *= Config.MOMENT_SCALE
     
     #Visualization Setup
     nodes_original = raw_data["node_pos"].numpy()
     edge_index = raw_data["edge_index"].numpy()
     
     #Exaggerate displacement by 50x for visual clarity
-    DISP_SCALE = 50.0 
-    nodes_displaced = nodes_original + (pred_disp[:, :3] * DISP_SCALE)
+    DISP_SCALE_VISUAL = 50.0 
+    nodes_displaced = nodes_original + (pred_disp[:, :3] * DISP_SCALE_VISUAL)
     
     #Use Axial Force (1st component of the 12-DOF force tensor) for coloring
     axial_forces = pred_force[:, 0]
@@ -76,5 +94,5 @@ def infer_and_visualize(pt_file, timestep_to_predict=5):
 
 if __name__ == "__main__":
     #Point this to a single generated .pt file
-    sample_file = r"D:\WU15\TRASTRGNN\Data\Version 7\Structure-101.pt"
+    sample_file = r"D:\WU15\TRASTRGNN\Data\Version 7\Structure-1005.pt"
     infer_and_visualize(sample_file)
